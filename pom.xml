@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.acme</groupId>
   <artifactId>simple-kjar</artifactId>
@@ -54,20 +55,38 @@
         <version>7.26.0.Final-redhat-00006</version>
         <extensions>true</extensions>
       </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>additional-install</id>
+            <phase>install</phase>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <configuration>
+              <file>${project.build.directory}/${project.build.finalName}.jar</file>
+              <pomFile>pom.xml</pomFile>
+              <localRepositoryPath>${project.build.directory}/local-repository/maven</localRepositoryPath>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <repositories>
-		<repository>
-			<id>redhat-ga</id>
-			<name>redhat-ga</name>
-			<url>https://maven.repository.redhat.com/ga/</url>
-		</repository>
-	</repositories>
+    <repository>
+      <id>redhat-ga</id>
+      <name>redhat-ga</name>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </repository>
+  </repositories>
   <pluginRepositories>
     <pluginRepository>
       <id>redhat-ga-plugin</id>
-			<name>redhat-ga</name>
-			<url>https://maven.repository.redhat.com/ga/</url>
+      <name>redhat-ga</name>
+      <url>https://maven.repository.redhat.com/ga/</url>
     </pluginRepository>
   </pluginRepositories>
 </project>
