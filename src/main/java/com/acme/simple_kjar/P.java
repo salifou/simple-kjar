@@ -10,6 +10,8 @@ public class P implements java.io.Serializable {
 
 	private java.lang.Boolean p;
 
+	private java.lang.Boolean b;
+
 	public P() {
 	}
 
@@ -21,8 +23,17 @@ public class P implements java.io.Serializable {
 		this.p = p;
 	}
 
-	public P(java.lang.Boolean p) {
+	public java.lang.Boolean getB() {
+		return this.b;
+	}
+
+	public void setB(java.lang.Boolean b) {
+		this.b = b;
+	}
+
+	public P(java.lang.Boolean p, java.lang.Boolean b) {
 		this.p = p;
+		this.b = b;
 	}
 
 }
