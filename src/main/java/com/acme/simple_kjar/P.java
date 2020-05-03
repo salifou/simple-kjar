@@ -6,12 +6,23 @@ package com.acme.simple_kjar;
 
 public class P implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public P() {
-    }
+	private java.lang.Boolean p;
 
+	public P() {
+	}
 
+	public java.lang.Boolean getP() {
+		return this.p;
+	}
 
+	public void setP(java.lang.Boolean p) {
+		this.p = p;
+	}
+
+	public P(java.lang.Boolean p) {
+		this.p = p;
+	}
 
 }
